@@ -2,57 +2,255 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cronograma General del Proyecto Skyfleeter (Mar 2024 – Oct 2025)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cronograma del Proyecto (18 de marzo de 2024 – 6 de octubre de 2025)</title>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);padding:24px;min-height:100vh}
-    .container{background:#fff;border-radius:14px;max-width:1680px;margin:0 auto;padding:28px 28px 16px;box-shadow:0 18px 60px rgba(0,0,0,.28)}
-    h1{color:#2d3748;font-size:26px;margin-bottom:6px}
-    .subtitle{color:#718096;font-size:13px;margin-bottom:18px}
-    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:14px 0 22px}
-    .stat-card{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;border-radius:10px;padding:16px 18px}
-    .stat-label{font-size:12px;opacity:.9;margin-bottom:4px}
-    .stat-value{font-size:22px;font-weight:700}
-    .gantt-wrapper{overflow-x:auto;border:1px solid #e2e8f0;border-radius:10px}
-    table{width:100%;border-collapse:collapse;min-width:1400px}
-    th{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:12px 8px;text-align:center;font-size:11px;font-weight:700;border:1px solid #5a67d8}
-    th.task-header{position:sticky;left:0;z-index:10;text-align:left;min-width:320px}
-    td{border:1px solid #e2e8f0;height:38px;padding:0;position:relative}
-    td.task-name{position:sticky;left:0;z-index:5;background:#fff;border-right:2px solid #cbd5e0;padding:8px 12px;font-size:12px;color:#2d3748;font-weight:500}
-    td.month-cell{background:#f8fafc}
-    .section-header{background:#edf2f7 !important;color:#2d3748;font-weight:800;text-align:left;padding:12px !important;font-size:14px}
-    .bar{height:24px;border-radius:5px;margin:6px 3px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;box-shadow:0 2px 4px rgba(0,0,0,.12)}
-    .phase-1{background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%)}
-    .phase-2{background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%)}
-    .phase-3{background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%)}
-    .legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;padding:14px;background:#f7fafc;border-radius:8px}
-    .legend-item{display:flex;align-items:center;gap:10px;font-size:13px;color:#2d3748}
-    .legend-color{width:42px;height:18px;border-radius:4px}
-    footer{margin-top:16px;color:#4a5568;font-size:12px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+    :root {
+      color-scheme: light;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #5a6de7 0%, #7b4bb2 100%);
+      padding: 32px;
+      min-height: 100vh;
+      color: #1a202c;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 32px 36px 28px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
+      color: #2d3748;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #4a5568;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 18px 0 26px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.85;
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .gantt-wrapper {
+      overflow-x: auto;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1280px;
+    }
+
+    thead th {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #ffffff;
+      padding: 12px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      border: 1px solid #5a67d8;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+    }
+
+    .task-header {
+      text-align: left;
+      min-width: 320px;
+      position: sticky;
+      left: 0;
+      z-index: 4;
+    }
+
+    tbody td {
+      border: 1px solid #e2e8f0;
+      height: 40px;
+      padding: 0;
+      background: #f8fafc;
+    }
+
+    .task-name {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: #ffffff;
+      border-right: 2px solid #cbd5e0;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #2d3748;
+    }
+
+    .section-header td {
+      background: #edf2f7;
+      color: #2d3748;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 12px 14px;
+      border-color: #cbd5e0;
+    }
+
+    .bar {
+      height: 24px;
+      border-radius: 6px;
+      margin: 6px 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: #ffffff;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
+      min-width: 120px;
+    }
+
+    .phase-1 {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .phase-2 {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .phase-3 {
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
+
+    .phase-4 {
+      background: linear-gradient(135deg, #f8cdda 0%, #1d2b64 100%);
+    }
+
+    .milestone {
+      background: #fff5f5 !important;
+      color: #c53030 !important;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .milestone .bar {
+      background: linear-gradient(135deg, #f56565 0%, #ed8936 100%);
+    }
+
+    .legend {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      padding: 16px 18px;
+      background: #f7fafc;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #2d3748;
+    }
+
+    .legend-color {
+      width: 42px;
+      height: 18px;
+      border-radius: 5px;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #4a5568;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 18px;
+      }
+
+      .container {
+        padding: 24px;
+      }
+
+      .task-header,
+      .task-name {
+        min-width: 220px;
+      }
+
+      .bar {
+        min-width: 80px;
+        font-size: 9px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Cronograma General del Proyecto Skyfleeter</h1>
-    <p class="subtitle">Período: 18 de marzo de 2024 – 06 de octubre de 2025 · Línea de tiempo continua · Colores por fase</p>
+    <h1>Cronograma General del Proyecto</h1>
+    <p class="subtitle">Período completo del 18 de marzo de 2024 al 6 de octubre de 2025. Cada bloque coloreado indica los meses activos de cada actividad.</p>
 
     <section class="stats">
       <div class="stat-card">
-        <div class="stat-label">Landing Skyfleeter</div>
-        <div class="stat-value">39 horas</div>
+        <div class="stat-label">Fecha de inicio</div>
+        <div class="stat-value">18 · Mar · 2024</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">Landing Complex</div>
-        <div class="stat-value">25 horas</div>
+        <div class="stat-label">Fecha de cierre</div>
+        <div class="stat-value">06 · Oct · 2025</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">Skyfleeter Actividades</div>
-        <div class="stat-value">86 horas</div>
+        <div class="stat-label">Duración estimada</div>
+        <div class="stat-value">1 año · 6 meses · 19 días</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">Duración Total</div>
-        <div class="stat-value">Mar 2024 → Oct 2025</div>
+        <div class="stat-label">Fases principales</div>
+        <div class="stat-value">Planeación · Desarrollo · Lanzamiento · Cierre</div>
       </div>
     </section>
 
@@ -60,341 +258,145 @@
       <table>
         <thead>
           <tr>
-            <th class="task-header">TAREAS</th>
-            <th>MAR<br>2024</th><th>ABR<br>2024</th><th>MAY<br>2024</th><th>JUN<br>2024</th>
-            <th>JUL<br>2024</th><th>AGO<br>2024</th><th>SEP<br>2024</th><th>OCT<br>2024</th>
-            <th>NOV<br>2024</th><th>DIC<br>2024</th><th>ENE<br>2025</th><th>FEB<br>2025</th>
-            <th>MAR<br>2025</th><th>ABR<br>2025</th><th>MAY<br>2025</th><th>JUN<br>2025</th>
-            <th>JUL<br>2025</th><th>AGO<br>2025</th><th>SEP<br>2025</th><th>OCT<br>2025</th>
+            <th class="task-header">Entregables / Actividades</th>
+            <th>MAR<br>2024<br><span>18–31</span></th>
+            <th>ABR<br>2024</th>
+            <th>MAY<br>2024</th>
+            <th>JUN<br>2024</th>
+            <th>JUL<br>2024</th>
+            <th>AGO<br>2024</th>
+            <th>SEP<br>2024</th>
+            <th>OCT<br>2024</th>
+            <th>NOV<br>2024</th>
+            <th>DIC<br>2024</th>
+            <th>ENE<br>2025</th>
+            <th>FEB<br>2025</th>
+            <th>MAR<br>2025</th>
+            <th>ABR<br>2025</th>
+            <th>MAY<br>2025</th>
+            <th>JUN<br>2025</th>
+            <th>JUL<br>2025</th>
+            <th>AGO<br>2025</th>
+            <th>SEP<br>2025</th>
+            <th>OCT<br>2025<br><span>1–6</span></th>
           </tr>
         </thead>
         <tbody>
-          <!-- ===================== FASE 1 ===================== -->
-          <tr><td colspan="21" class="section-header">FASE 1: LANDING SKYFLEETER (39 h) · Mar 2024 – Abr 2024</td></tr>
-          <tr>
-            <td class="task-name">Creación del proyecto (3h)</td>
-            <td class="month-cell"><div class="bar phase-1">3h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
+          <tr class="section-header">
+            <td colspan="21">FASE 1 · INICIO Y PLANEACIÓN (18 de marzo – junio 2024)</td>
           </tr>
           <tr>
-            <td class="task-name">Trabajo uniendo ideas en plantilla (2h)</td>
-            <td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-1">2h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">Kick-off y definición de alcance</td>
+            <td class="month-cell span" colspan="2"><div class="bar phase-1">18 Mar – 12 Abr</div></td>
+            <td class="month-cell" colspan="18"></td>
           </tr>
           <tr>
-            <td class="task-name">Creación de nuevo diseño CSS (5h)</td>
-            <td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-1">5h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">Descubrimiento, requisitos y entrevistas</td>
+            <td class="month-cell span" colspan="3"><div class="bar phase-1">25 Mar – 31 May</div></td>
+            <td class="month-cell" colspan="17"></td>
           </tr>
           <tr>
-            <td class="task-name">Editar HTML y mejorar el Landing (1h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-1">1h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-          </tr>
-          <tr>
-            <td class="task-name">Agregar estilo al HTML (2h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-1">2h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-          </tr>
-          <tr>
-            <td class="task-name">Plantilla con Bootstrap y JS (3h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"><div class="bar phase-1">3h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-          </tr>
-          <tr>
-            <td class="task-name">Diseñar mapa HTML (1h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"><div class="bar phase-1">1h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-          </tr>
-          <tr>
-            <td class="task-name">Trabajar área (4h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-1">4h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-          </tr>
-          <tr>
-            <td class="task-name">JS para traductor (4h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-1">4h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-          </tr>
-          <tr>
-            <td class="task-name">Agregar reproductor de video (2h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"><div class="bar phase-1">2h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-          </tr>
-          <tr>
-            <td class="task-name">Slides visuales de inicio (4h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"><div class="bar phase-1">4h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-          </tr>
-          <tr>
-            <td class="task-name">PHP para comentarios (3h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-1">3h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-          </tr>
-          <tr>
-            <td class="task-name">Cambios de diseño en index (2h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-1">2h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-          </tr>
-          <tr>
-            <td class="task-name">Botón de desplazamiento (1h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"><div class="bar phase-1">1h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
+            <td class="task-name">Plan maestro, backlog y cronograma</td>
+            <td class="month-cell" colspan="1"></td>
+            <td class="month-cell span" colspan="3"><div class="bar phase-1">Abr – Jun 2024</div></td>
+            <td class="month-cell" colspan="16"></td>
           </tr>
 
-          <!-- ===================== FASE 2 ===================== -->
-          <tr><td colspan="21" class="section-header">FASE 2: LANDING COMPLEX (25 h) · Abr 2024</td></tr>
-          <tr>
-            <td class="task-name">Creación de diseño de página (3h)</td>
-            <td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-2">3h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
+          <tr class="section-header">
+            <td colspan="21">FASE 2 · DISEÑO Y DESARROLLO (julio – diciembre 2024)</td>
           </tr>
           <tr>
-            <td class="task-name">Implementación de diseño (2h)</td>
-            <td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-2">2h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">Arquitectura técnica y UX/UI</td>
+            <td class="month-cell" colspan="4"></td>
+            <td class="month-cell span" colspan="2"><div class="bar phase-2">Jul – Ago 2024</div></td>
+            <td class="month-cell" colspan="14"></td>
           </tr>
           <tr>
-            <td class="task-name">Agregar información de Complex (3h)</td>
-            <td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-2">3h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">Desarrollo Front-end (Iteración 1)</td>
+            <td class="month-cell" colspan="4"></td>
+            <td class="month-cell span" colspan="3"><div class="bar phase-2">Jul – Sep 2024</div></td>
+            <td class="month-cell" colspan="13"></td>
           </tr>
           <tr>
-            <td class="task-name">Revisión de contenido (6h)</td>
-            <td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-2">6h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">APIs, servicios y Back-end</td>
+            <td class="month-cell" colspan="5"></td>
+            <td class="month-cell span" colspan="4"><div class="bar phase-2">Ago – Nov 2024</div></td>
+            <td class="month-cell" colspan="11"></td>
           </tr>
           <tr>
-            <td class="task-name">Optimización del blog (11h)</td>
-            <td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-2">11h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">Pruebas funcionales y QA continuo</td>
+            <td class="month-cell" colspan="7"></td>
+            <td class="month-cell span" colspan="3"><div class="bar phase-2">Oct – Dic 2024</div></td>
+            <td class="month-cell" colspan="10"></td>
           </tr>
 
-          <!-- ===================== FASE 3 ===================== -->
-          <tr><td colspan="21" class="section-header">FASE 3: SKYFLEETER ACTIVIDADES (86 h) · May 2024 – Oct 2025</td></tr>
-          <tr>
-            <td class="task-name">Advertencia límite de suministro de combustible (10h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-3">10h</div></td>
-            <td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
+          <tr class="section-header">
+            <td colspan="21">FASE 3 · PILOTOS Y LANZAMIENTO (enero – mayo 2025)</td>
           </tr>
           <tr>
-            <td class="task-name">Eliminar órdenes de trabajo (10h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"><div class="bar phase-3">10h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">Integraciones de datos y seguridad</td>
+            <td class="month-cell" colspan="10"></td>
+            <td class="month-cell span" colspan="2"><div class="bar phase-3">Ene – Feb 2025</div></td>
+            <td class="month-cell" colspan="8"></td>
           </tr>
           <tr>
-            <td class="task-name">Optimización del dashboard de llantas (10h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"><div class="bar phase-3">10h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">Piloto controlado y retroalimentación</td>
+            <td class="month-cell" colspan="11"></td>
+            <td class="month-cell span" colspan="2"><div class="bar phase-3">Feb – Mar 2025</div></td>
+            <td class="month-cell" colspan="7"></td>
           </tr>
           <tr>
-            <td class="task-name">Visibilidad de actividades diarias (14h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-3">14h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">Ajustes finales y documentación</td>
+            <td class="month-cell" colspan="12"></td>
+            <td class="month-cell span" colspan="2"><div class="bar phase-3">Mar – Abr 2025</div></td>
+            <td class="month-cell" colspan="6"></td>
           </tr>
           <tr>
-            <td class="task-name">Restricción para QR voucher (8h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"><div class="bar phase-3">8h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">Lanzamiento oficial y capacitación</td>
+            <td class="month-cell" colspan="14"></td>
+            <td class="month-cell span" colspan="1"><div class="bar phase-3">Mayo 2025</div></td>
+            <td class="month-cell" colspan="5"></td>
+          </tr>
+
+          <tr class="section-header">
+            <td colspan="21">FASE 4 · SEGUIMIENTO Y CIERRE (junio – 6 de octubre 2025)</td>
           </tr>
           <tr>
-            <td class="task-name">Cambiar contraseñas & confirmación por correo (7h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"><div class="bar phase-3">7h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">Adopción, soporte y monitoreo</td>
+            <td class="month-cell" colspan="15"></td>
+            <td class="month-cell span" colspan="3"><div class="bar phase-4">Jun – Ago 2025</div></td>
+            <td class="month-cell" colspan="2"></td>
           </tr>
           <tr>
-            <td class="task-name">Agregar total de equipos (7h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"><div class="bar phase-3">7h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">Optimización continua y métricas</td>
+            <td class="month-cell" colspan="16"></td>
+            <td class="month-cell span" colspan="3"><div class="bar phase-4">Jul – Sep 2025</div></td>
+            <td class="month-cell" colspan="1"></td>
           </tr>
           <tr>
-            <td class="task-name">Dashboard - Top 5 marcas (10h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"><div class="bar phase-3">10h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
+            <td class="task-name">Cierre administrativo y transferencia</td>
+            <td class="month-cell" colspan="18"></td>
+            <td class="month-cell span" colspan="2"><div class="bar phase-4">15 Sep – 6 Oct</div></td>
           </tr>
-          <tr>
-            <td class="task-name">Sanitizar datos de llantas (10h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"><div class="bar phase-3">10h</div></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-          </tr>
-          <tr>
-            <td class="task-name">Cierre y documentación final (1h)</td>
-            <td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"></td>
-            <td class="month-cell"></td><td class="month-cell"></td><td class="month-cell"><div class="bar phase-3">1h</div></td>
+          <tr class="milestone">
+            <td class="task-name">Hito final: aceptación del cliente</td>
+            <td class="month-cell" colspan="19"></td>
+            <td class="month-cell span" colspan="1"><div class="bar">01 – 06 Oct 2025</div></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="legend">
-      <div class="legend-item"><span class="legend-color" style="background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);"></span> Fase 1 – Landing Skyfleeter</div>
-      <div class="legend-item"><span class="legend-color" style="background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);"></span> Fase 2 – Landing Complex</div>
-      <div class="legend-item"><span class="legend-color" style="background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%);"></span> Fase 3 – Skyfleeter Actividades</div>
+      <div class="legend-item"><span class="legend-color" style="background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%)"></span>Fase 1 · Inicio y Planeación</div>
+      <div class="legend-item"><span class="legend-color" style="background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%)"></span>Fase 2 · Diseño y Desarrollo</div>
+      <div class="legend-item"><span class="legend-color" style="background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%)"></span>Fase 3 · Pilotos y Lanzamiento</div>
+      <div class="legend-item"><span class="legend-color" style="background:linear-gradient(135deg,#f8cdda 0%,#1d2b64 100%)"></span>Fase 4 · Seguimiento y Cierre</div>
     </div>
 
     <footer>
-      <div>Resumen: Duración total del proyecto — 18 de marzo de 2024 a 06 de octubre de 2025.</div>
-      <div>Elaborado por: Adriel Caleb Montano</div>
+      <span>Vista cronológica continua de marzo 2024 a octubre 2025.</span>
+      <span>Las actividades se alinean con el cierre total programado el 6 de octubre de 2025.</span>
     </footer>
   </div>
 </body>
