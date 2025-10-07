@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma del Proyecto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 1600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .gantt-wrapper {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        
+        .gantt-chart {
+            min-width: 1400px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 8px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid #5a67d8;
+        }
+        
+        th.task-header {
+            text-align: left;
+            min-width: 280px;
+            position: sticky;
+            left: 0;
+            z-index: 10;
+        }
+        
+        td {
+            border: 1px solid #e2e8f0;
+            padding: 0;
+            height: 36px;
+            position: relative;
+        }
+        
+        td.task-name {
+            padding: 8px 12px;
+            background: white;
+            font-size: 12px;
+            color: #2d3748;
+            position: sticky;
+            left: 0;
+            z-index: 5;
+            border-right: 2px solid #cbd5e0;
+            font-weight: 500;
+        }
+        
+        td.month-cell {
+            background: #f7fafc;
+        }
+        
+        .bar {
+            height: 24px;
+            border-radius: 4px;
+            margin: 6px 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .phase-1 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .phase-2 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .phase-3 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        
+        .section-header {
+            background: #edf2f7 !important;
+            font-weight: 700;
+            color: #2d3748;
+            text-align: left;
+            padding: 12px !important;
+            font-size: 14px;
+        }
+        
+        .legend {
+            display: flex;
+            gap: 25px;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend-color {
+            width: 40px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cronograma del Proyecto</h1>
+        <p class="subtitle">Período: 18 de marzo 2024 - 06 de octubre 2025 | Total: 150 horas estimadas</p>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-label">Landing Skyfleeter</div>
+                <div class="stat-value">39 hrs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Landing Complex</div>
+                <div class="stat-value">25 hrs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Skyfleeter Actividades</div>
+                <div class="stat-value">86 hrs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Duración Total</div>
+                <div class="stat-value">19 meses</div>
+            </div>
+        </div>
+        
+        <div class="gantt-wrapper">
+            <div class="gantt-chart">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="task-header">TAREAS</th>
+                            <th>MAR<br>2024</th>
+                            <th>ABR<br>2024</th>
+                            <th>MAY<br>2024</th>
+                            <th>JUN<br>2024</th>
+                            <th>JUL<br>2024</th>
+                            <th>AGO<br>2024</th>
+                            <th>SEP<br>2024</th>
+                            <th>OCT<br>2024</th>
+                            <th>NOV<br>2024</th>
+                            <th>DIC<br>2024</th>
+                            <th>ENE<br>2025</th>
+                            <th>FEB<br>2025</th>
+                            <th>MAR<br>2025</th>
+                            <th>ABR<br>2025</th>
+                            <th>MAY<br>2025</th>
+                            <th>JUN<br>2025</th>
+                            <th>JUL<br>2025</th>
+                            <th>AGO<br>2025</th>
+                            <th>SEP<br>2025</th>
+                            <th>OCT<br>2025</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="21" class="section-header">FASE 1: LANDING SKYFLEETER (39 hrs) - Mar 2024 a Sep 2024</td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Gestión del proyecto (3h)</td>
+                            <td class="month-cell"><div class="bar phase-1">3h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Trabajo uniendo ideas en plantilla (2h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">2h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Creación nuevo diseño CSS (5h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">5h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Editar HTML mejorar Landing (1h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">1h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Agregar estilo al HTML (2h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">2h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Trabajar plantilla Bootstrap y JS (3h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">3h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Diseñar mapa HTML (1h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">1h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Trabajar área (4h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">4h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Creación JS para traductor (4h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">4h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Agregar reproductor de video (2h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">2h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Agregar slides visual inicio (4h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">4h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Implementar PHP comentarios (3h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">3h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Cambios diseño índice inicio (2h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">2h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Agregar botón desplazamiento (1h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-1">1h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="21" class="section-header">FASE 2: LANDING COMPLEX (25 hrs) - Oct 2024 a Feb 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Creación diseño página complex (3h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-2">3h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Implementación diseño por agregar (2h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-2">2h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Agregar información complex (3h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-2">3h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Revisión de contenido (6h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-2">6h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Optimización del Blog (6h)</td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"><div class="bar phase-2">6h</div></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                            <td class="month-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="task-name">Optimización del Blog - continuación (5h)</td>
+                            <td class="month-cell"></td>
+                            
